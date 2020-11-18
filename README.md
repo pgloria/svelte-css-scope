@@ -40,5 +40,46 @@ export default {
 }
 ```
 
+## Sample 
+#### input
+```html
+<script>
+	let error = false;
+	let isValid = true;
+	let rounded = true;
+</script>
 
+<div class="button {rounded ? 'btn-rounded' : 'btn-squared'}" class:error class:roundedError={rounded && error}>
+	test 1 2 3
+</div>
+
+<style>
+	.error {}
+	.btn-rounded {}
+	.btn-squared {}
+	.button {}
+	.roundedError {}
+</style>
+
+```
+#### output
+```html
+<script>
+	let error = false;
+	let isValid = true;
+	let rounded = true;
+</script>
+
+<div class="button-QWERTY {(rounded ? 'btn-rounded' : 'btn-squared') + '-QWERTY'}" class:error-QWERTY={error} class:roundedError-QWERTY={rounded && error}>
+	test 1 2 3
+</div>
+
+<style>
+	.error-QWERTY {}
+	.btn-rounded-QWERTY {}
+	.btn-squared-QWERTY {}
+	.button-QWERTY {}
+	.roundedError-QWERTY {}
+</style>
+```
 

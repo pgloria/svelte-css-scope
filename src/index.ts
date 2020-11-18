@@ -1,6 +1,4 @@
-import { notDeepEqual } from 'assert';
 import MagicString from 'magic-string';
-import { start } from 'repl';
 import { walk, parse, Node } from 'svelte/compiler';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
@@ -54,7 +52,6 @@ export default (options: ScoperOptions | null): Pick<PreprocessorGroup, 'markup'
           if (node.type === 'Attribute' && node.name === 'class') inClassAttribute = true;
 
           if (inClassAttribute) {
-            console.log(node);
             if (node.type === 'Text') {
               replaceName(magicContent, node.raw as string, node.start);
             } else if (node.type == 'MustacheTag') {

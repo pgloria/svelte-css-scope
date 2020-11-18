@@ -69,3 +69,15 @@ test('should have no influence in any other selector', async () => {
   const processed = await processor.markup({ content: template, filename });
   expect(processed.code).toBe(template);
 });
+
+test('should have no influence in any other selector', async () => {
+  const template = `
+  <style>
+  :global(* :after div h1) {
+    margin: 0;
+  }
+  </style>`;
+  const processor = cssScoper({});
+  const processed = await processor.markup({ content: template, filename });
+  expect(processed.code).toBe(template);
+});
