@@ -26,8 +26,8 @@
     "test:watch": "jest --no-cache --watchAll",
     "lint": "eslint **/*.ts",
     "format": "prettier --loglevel silent --write \"src/**/*.js\" && eslint --fix \"src/**/*.js\"",
-    "tag": "git tag -a v$npm_package_version -m 'Release v$npm_package_version'",
-    "release": "npm i --package-lock-only && git add package.json package-lock.json && git commit -m \"chore: release v$npm_package_version\"",
+    "tag": "git tag -a v%npm_package_version% -m 'Release v%npm_package_version%'",
+    "release": "npm i --package-lock-only && git add package.json package-lock.json && git commit -m \"chore: release v%npm_package_version%\"",
     "minify": "babel-minify dist -d dist",
     "prepublishOnly": "npm run build && npm run minify && npm run release && npm run tag"
   },
