@@ -1,0 +1,7 @@
+{
+  "extends": ["kaisermann/typescript"],
+  "env": {
+    "node": true,
+    "jest": true
+  }
+}
